@@ -33,6 +33,10 @@ ENV MONGO_APP_USER myAppUser
 ENV MONGO_APP_PASSWORD myAppPassword
 ENV MONGO_APP_DATABASE myAppDatabase
 
+# mongo app readonly user + password
+ENV MONGO_APP_READONLY_USER myAppReadonlyUser
+ENV MONGO_APP_READONLY_PASSWORD myAppReadonlyPassword
+
 COPY scripts $MONGO_SCRIPTS_DIR
 
 VOLUME /data/db /data/configdb

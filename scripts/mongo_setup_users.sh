@@ -35,6 +35,9 @@ gosu mongodb mongo admin --eval "db.createUser({user: '$MONGO_ROOT_USER', pwd: '
 # create app user/database
 gosu mongodb mongo $MONGO_APP_DATABASE --eval "db.createUser({ user: '$MONGO_APP_USER', pwd: '$MONGO_APP_PASSWORD', roles: [{ role: 'readWrite', db: '$MONGO_APP_DATABASE' }, { role: 'read', db: 'local' }]});"
 
+# create app readonly user/database
+gosu mongodb mongo $MONGO_APP_DATABASE --eval "db.createUser({ user: '$MONGO_APP_READONLY_USER', pwd: '$MONGO_APP_READONLY_PASSWORD', roles: [{ role: 'read', db: '$MONGO_APP_DATABASE' }, { role: 'read', db: 'local' }]});"
+
 
 echo "************************************************************"
 echo "Shutting down"
